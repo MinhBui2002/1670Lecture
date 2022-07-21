@@ -1,0 +1,32 @@
+﻿<i>Current datetime: @DateTime.Now</i>
+<br />
+<i>Current year : @DateTime.Now.Year</i>
+<br />
+
+
+<h3>University name: @ViewData["name"]</h3>
+<h3>University address: @ViewData["address"]</h3>
+<h3>University year: @ViewData["year"]</h3>
+
+
+@{
+    var a = @DateTime.Now.Year - (int)@ViewData["year"];
+    var grade = @ViewBag.Grade;
+}
+
+<h3>Working year: @a</h3>
+
+<h4>Student grade: @ViewBag.Grade</h4>
+@if (@grade < 5)
+{
+    <h3>Fail</h3>
+}
+else
+{
+    <h3>Pass</h3>
+}
+
+@foreach (var student in @ViewBag.Student)
+{
+    <u>@student</u>
+}

@@ -1,0 +1,22 @@
+﻿body {
+    background-color: red;
+}
+
+
+/*a {
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 50%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rebeccapurple;
+}
+*/
+
+h1#heil{
+    color:white;
+}
+
+img{
+    border-radius:50%;
+}
