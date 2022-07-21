@@ -8,7 +8,6 @@
 <h3>University address: @ViewData["address"]</h3>
 <h3>University year: @ViewData["year"]</h3>
 
-
 @{
     var a = @DateTime.Now.Year - (int)@ViewData["year"];
     var grade = @ViewBag.Grade;
