@@ -8,5 +8,6 @@
         public string Email { get; set; }
         public float Grade { get; set; }
         public bool IsGraduated { get; set; }
+        public string Image { get; set; }
     }
 }
