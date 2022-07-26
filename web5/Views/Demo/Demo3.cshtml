@@ -1,0 +1,22 @@
+﻿@model List<Mobile>
+
+<table>
+    <tr>
+        <th>Mobile No.</th>
+        <th>Mobile name</th>
+        <th>Mobile quantity</th>
+        <th>Mobile Price</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Number</td>
+            <td>@item.Name</td>
+            <td>@item.Quantity</td>
+            <td>@item.Price</td>
+        </tr>
+    }
+
+
+
+</table>
