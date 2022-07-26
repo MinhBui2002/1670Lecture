@@ -33,6 +33,16 @@
                 <span asp-validation-for="Quantity" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Color" class="control-label"></label>
+                <input asp-for="Color" class="form-control" />
+                 <select class="form-control">
+                     <option value="Black">Black</option>
+                     <option value="Blue">Blue</option>
+                     <option value="White">White</option>
+                     <option value="Brown">Brown</option>
+                 </select>
+            </div>
+            <div class="form-group">
                 <label asp-for="Image" class="control-label"></label>
                 <input asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>

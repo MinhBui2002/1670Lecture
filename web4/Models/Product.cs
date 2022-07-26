@@ -15,6 +15,8 @@ namespace web4.Models
         [Range(1, 100)]
         public string Quantity { get; set; }
         [Required]
+        public string Color { get; set; }
+        [Required]
         public string Image { get; set; }
     }
 }
