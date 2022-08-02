@@ -1,0 +1,36 @@
+﻿@model List<web8.Models.Mobile>
+
+<table class="table table-success">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Image</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@Model[i].Name</td>
+                <td>@Model[i].Brand</td>
+                <td>@Model[i].Color</td>
+                <td>@Model[i].Price</td>
+                <td>
+                    <a class="btn btn-info" asp-controller="Mobile" asp-route-id="@Model[i].Id" asp-action="Detail"><img src="@Model[i].Image" /></a>
+                </td>
+                <td>
+
+                    <a class="btn btn-warning" asp-controller="Mobile" asp-action="Edit" asp-route-id="@Model[i].Id">Edit</a>
+                    <a class="btn btn-danger" onclick="return confirm("Do you want to delete? ")" asp-controller="Mobile" asp-action="Delete" asp-route-id="@Model[i].Id">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>    
