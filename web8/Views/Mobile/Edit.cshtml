@@ -15,9 +15,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Color" class="col-form-label h5"></label>
-        <select asp-for="Color" asp-items="Html.GetEnumSelectList<Color>()">
-            <option>Select mobile color</option>
-        </select>
+        <input asp-for="Color" class="form-control" />
         <span asp-validation-for="Color"></span>
     </div>
     <div class="form-group">

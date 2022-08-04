@@ -33,6 +33,7 @@ namespace web8.Controllers
             var mobile = context.Mobile.Find(id);
             context.Mobile.Remove(mobile);
             context.SaveChanges();
+            TempData["message"] = "Delete successfully";
             return RedirectToAction(nameof(Index));
         }
 
@@ -49,6 +50,7 @@ namespace web8.Controllers
             {
                 context.Add(mobile);
                 context.SaveChanges();
+                TempData["message"] = "Add successfully";
                 return RedirectToAction(nameof(Index));
             }
             return View(mobile);
@@ -69,6 +71,7 @@ namespace web8.Controllers
             {
                 context.Update(mobile);
                 context.SaveChanges();
+                TempData["message"] = "Edit successfully";
                 return RedirectToAction(nameof(Index));
             }
             return View(mobile);

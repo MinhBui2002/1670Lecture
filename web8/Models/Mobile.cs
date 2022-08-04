@@ -3,23 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace web8.Models
 {
-    public enum Color
-    {
-        Black,
-        White,
-        Red,
-        Blue,
-    }
+    
     public class Mobile
     {
-
-
         public int Id { get; set; }
         
         [Required]
         public string Name { get; set; }
         public string Brand { get; set; }
-        public Color Color { get; set; }
+        public string Color { get; set; }
         public float Price { get; set; }
         public string Image { get; set; }
         

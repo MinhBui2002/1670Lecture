@@ -10,15 +10,15 @@ using web8.Data;
 namespace web8.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220728040347_second")]
-    partial class second
+    [Migration("20220804021152_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.26")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -31,18 +31,18 @@ namespace web8.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("RoleNameIndex")
+                        .HasDatabaseName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
@@ -85,8 +85,8 @@ namespace web8.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
@@ -98,12 +98,12 @@ namespace web8.Data.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -121,17 +121,17 @@ namespace web8.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
+                        .HasDatabaseName("EmailIndex");
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("UserNameIndex")
+                        .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
@@ -164,12 +164,12 @@ namespace web8.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -206,12 +206,12 @@ namespace web8.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -228,24 +228,96 @@ namespace web8.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("BestSeller")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Mobile");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BestSeller = true,
+                            Brand = "Apple",
+                            Color = "White",
+                            Date = new DateTime(2022, 8, 4, 9, 11, 51, 493, DateTimeKind.Local).AddTicks(2256),
+                            Image = "https://cdn-amz.woka.io/images/I/61s0IaMcKtL.jpg",
+                            Name = "Iphone X",
+                            Price = 1000000f,
+                            Quantity = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BestSeller = true,
+                            Brand = "Samsung",
+                            Color = "White",
+                            Date = new DateTime(2022, 8, 4, 9, 11, 51, 494, DateTimeKind.Local).AddTicks(9173),
+                            Image = "https://cdn-amz.woka.io/images/I/61s0IaMcKtL.jpg",
+                            Name = "Samsung Galaxy S10",
+                            Price = 8000000f,
+                            Quantity = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BestSeller = true,
+                            Brand = "Apple",
+                            Color = "White",
+                            Date = new DateTime(2022, 8, 4, 9, 11, 51, 494, DateTimeKind.Local).AddTicks(9235),
+                            Image = "https://cdn-amz.woka.io/images/I/61s0IaMcKtL.jpg",
+                            Name = "Iphone XS",
+                            Price = 1000000f,
+                            Quantity = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BestSeller = true,
+                            Brand = "Samsung",
+                            Color = "White",
+                            Date = new DateTime(2022, 8, 4, 9, 11, 51, 494, DateTimeKind.Local).AddTicks(9239),
+                            Image = "https://cdn-amz.woka.io/images/I/61s0IaMcKtL.jpg",
+                            Name = "Samsung Galaxy S10 Plus",
+                            Price = 8000000f,
+                            Quantity = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BestSeller = true,
+                            Brand = "Apple",
+                            Color = "White",
+                            Date = new DateTime(2022, 8, 4, 9, 11, 51, 494, DateTimeKind.Local).AddTicks(9241),
+                            Image = "https://cdn-amz.woka.io/images/I/61s0IaMcKtL.jpg",
+                            Name = "Iphone XS Max",
+                            Price = 1000000f,
+                            Quantity = 0
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
