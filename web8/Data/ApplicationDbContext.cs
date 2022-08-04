@@ -11,9 +11,9 @@ namespace web8.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            
+
         }
         public DbSet<web8.Models.Mobile> Mobile { get; set; }
-        
+
     }
 }

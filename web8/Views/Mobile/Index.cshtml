@@ -27,7 +27,7 @@
                 <td>
 
                     <a class="btn btn-warning" asp-controller="Mobile" asp-action="Edit" asp-route-id="@Model[i].Id">Edit</a>
-                    <a class="btn btn-danger" onclick="return confirm("Do you want to delete? ")" asp-controller="Mobile" asp-action="Delete" asp-route-id="@Model[i].Id">Delete</a>
+                    <a class="btn btn-danger" onclick="confirm("Do you want to delete?")" asp-controller="Mobile" asp-action="Delete" asp-route-id="@Model[i].Id">Delete</a>
 
                 </td>
             </tr>

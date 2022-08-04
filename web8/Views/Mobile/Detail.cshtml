@@ -11,17 +11,18 @@
             <h4 class="text text-primary">Color: @Model.Color</h4>
             <h4 class="text text-primary">Price: @Model.Price $</h4>
             @if (Model.Quantity >= 1)
-           {
-                <h4 class="text text-primary">Quantity: @Model.Quantiy $</h4>
-            } else
+            {
+                <h4 class="text text-primary">Quantity: @Model.Quantity $</h4>
+            }
+            else
             {
                 <h4 class="text text-danger">Out of stock</h4>
             }
             <h4 class="text text-primary">Manufacture date: @Model.Date.ToShortDateString()</h4>
             @if (Model.BestSeller)
-           {
-               <h4 class="text text-danger">@Model.BestSeller</h4>
-           }
+            {
+                <h4 class="text text-danger">@Model.BestSeller</h4>
+            }
         </div>
 
     </div>
