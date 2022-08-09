@@ -1,0 +1,33 @@
+﻿@model ICollection<Country>
+
+
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th colspan="3">Capital list</th>
+            <th>
+                <a class="btn btn-primary" asp-controller="Capital" asp-action="Add">Add</a>
+            </th>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Population</th>
+            <th>Capital</th>
+            <th>Menu</th>
+        </tr>
+        @foreach (var country in Model)
+        {
+            <tr>
+                <th>@country.Id</th>
+                <th>@country.Name</th>
+                <th>@country.Population</th>
+                <th>@country.Capital.Name</th>
+                <th>
+                    <a class="btn btn-primary" asp-controller="Country" asp-action="Edit" asp-route-id="@country.Id">Edit</a>
+                    <a class="btn btn-danger" onclick="return confirm(' Are you sure you want to delete?')" asp-controller="Country" asp-action="Delete" asp-route-id="@country.Id">Delete</a>
+                </th>
+            </tr>
+        }
+    </table>
+</div>
