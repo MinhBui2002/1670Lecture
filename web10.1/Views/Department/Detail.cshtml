@@ -1,0 +1,28 @@
+﻿@model web10._1.Models.Department
+
+<div class="container col-md-10 text-center mt-3">
+    <div class="row">
+        <div class="col-md-3">
+            <img class="img-thumbnail" src="@Model.Image" width="300" height="300" />
+        </div>
+        <div class="col-md-5">
+            <table class="table table-bordered bg-light">
+                <tr>
+                    <th colspan="2" class="alert alert-success">@Model.Name</th>
+                </tr>
+                 <tr>
+                    <th class="col-md-2">Staff List</th>
+                    <td class="col-md-5">
+                        @foreach (var staff in Model.Employees)
+                       {
+                           <a asp-controller="Staff" asp-action="Detail" asp-route-id="@staff.Id">
+                                 @staff.Name
+                           </a>
+                           <br />
+                       }
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

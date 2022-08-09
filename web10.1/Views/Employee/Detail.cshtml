@@ -1,0 +1,49 @@
+﻿@model web10._1.Models.Employee
+
+<div class="container col-md-10 text-center mt-3">
+    <div class="row">
+        <div class="col-md-3">
+            <img class="img-thumbnail" src="@Model.Image" width="300" height="300" />
+        </div>
+        <div class="col-md-5">
+            <table class="table table-bordered bg-light">
+                <tr>
+                    <th colspan="2" class="alert alert-success">@Model.Name</th>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    @{
+                        var gender = "Male";
+                        if (Model.Gender == 'F')
+                            gender = "Female";
+                    }
+                    <td>@gender</td>
+                </tr>
+                <tr>
+                    <th>Date of birth</th>
+                    <td>@Model.Dob.ToShortDateString()</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>@Model.Address</td>
+                </tr>
+                <tr>
+                    <th>Salary</th>
+                    <td>$ @Model.Salary</td>
+                </tr>
+                <tr>
+                    <th>Mobile</th>
+                    <td>@Model.Mobile</td>
+                </tr>
+                 <tr>
+                    <th>Department</th>
+                    <td>
+                        <a asp-controller="Department" asp-action="Detail" asp-route-id="@Model.Department.Id">
+                            @Model.Department.Name
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
