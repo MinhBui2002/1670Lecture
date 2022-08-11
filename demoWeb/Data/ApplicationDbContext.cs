@@ -20,16 +20,24 @@ namespace demoWeb.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            SeedCountry(builder);
             SeedBrand(builder);
             SeedMobile(builder);
             SeedUser(builder);
             SeedRole(builder);
             SeedUserRole(builder);
         }
-
+        private void SeedCountry(ModelBuilder builder)
+        {
+            builder.Entity<Country>().HasData(
+                new Country { Id = 1, Name = "Korea" },
+                new Country { Id = 2, Name = "USA" },
+                new Country { Id = 3, Name = "China" }
+                );
+        }
         private void SeedUserRole(ModelBuilder builder)
         {
-            builder.Entity<IdentityUserRole>().HasData(
+            builder.Entity<IdentityUserRole<string>>().HasData(
                 new IdentityUserRole<string> { UserId = "1", RoleId = "A" },
                 new IdentityUserRole<string> { UserId = "2", RoleId = "B" }
                 );

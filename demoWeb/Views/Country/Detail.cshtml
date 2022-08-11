@@ -1,0 +1,36 @@
+﻿@model demoWeb.Models.Country
+
+<div class="container col-md-6 text-center mt-3">
+    <table class="table table-bordered">
+        <tr>
+            <th colspan="2" class="h3 bg-light text-success">@Model.Name</th>
+        </tr>
+        <tr>
+            <th colspan="1">Brand List</th>
+            <td>
+                @foreach (var brand in Model.Brands)
+                {
+                    <a class="font-weight-bold text-italic" asp-controller="Brand" asp-action="Detail" asp-route-id="@brand.Id">
+                        @brand.Name
+                    </a>
+                }
+            </td>
+        </tr>
+        <tr>
+            <th>Mobile List</th>
+            <td>
+                @foreach (var brand in Model.Brands)
+                {
+                    @foreach (var mobile in brand.Mobiles)
+                    {
+                        <a class="font-weight-bold text-italic" asp-controller="Mobile" asp-action="Detail" asp-route-id="@mobile.Id">
+                            @mobile.Name : @mobile.Price $
+                        </a>
+                        <br />
+                    }
+                    <br />
+                }
+            </td>
+        </tr>
+    </table>
+</div>
