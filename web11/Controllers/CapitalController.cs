@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using web11.Data;
+using web11.Models;
 
 namespace web11.Controllers
 {
@@ -30,5 +31,55 @@ namespace web11.Controllers
             }
             return View(capital);
         }
+
+        public IActionResult Delete(int? id)
+        {
+            var capital = context.Capital.Find(id);
+            context.Remove(capital);
+            context.SaveChanges();
+            TempData["Info"] = "Capital is delete?";
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(Capital capital)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(capital);
+                context.SaveChanges();
+                TempData["Info"] = "Add capital successfully!";
+                RedirectToAction(nameof(Index));
+            }
+            return View(capital);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            var capital = context.Capital.Find(id);
+            return View(capital);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Capital capital)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Update(capital);
+                context.SaveChanges();
+                TempData["Info"] = "Update capital successfully!";
+                RedirectToAction(nameof(Index));
+            }
+            return View(capital);
+        }
+
+
     }
 }

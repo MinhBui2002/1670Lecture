@@ -1,6 +1,9 @@
 ﻿@model ICollection<Capital>
 
-
+@if (@TempData["Info"] != null)
+{
+    <p class="alert">@TempData["Info"]</p>
+}
 <div class="container">
     <table class="table table-bordered">
         <tr>
