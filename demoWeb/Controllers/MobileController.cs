@@ -1,4 +1,5 @@
-﻿using demoWeb.Data;
+﻿
+using demoWeb.Data;
 using demoWeb.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,11 +8,11 @@ using System.Linq;
 
 namespace demoWeb.Controllers
 {
-    public class BrandController : Controller
+    public class MobileController : Controller
     {
         //khai báo ApplicationDbContext để truy xuất và thay đổi dữ liệu của bảng
         private ApplicationDbContext context;
-        public BrandController(ApplicationDbContext applicationDbContext)
+        public MobileController(ApplicationDbContext applicationDbContext)
         {
             context = applicationDbContext;
         }
@@ -20,68 +21,73 @@ namespace demoWeb.Controllers
         [Authorize]
         public IActionResult Index()
         {
-            return View(context.Brands.ToList());
+            return View(context.Mobiles.ToList());
         }
 
         //xoá dữ liệu từ bảng
         public IActionResult Delete(int id)
         {
-            var brand = context.Brands.Find(id);
-            context.Brands.Remove(brand);
+            var mobile = context.Mobiles.Find(id);
+            context.Mobiles.Remove(mobile);
             context.SaveChanges();
-            TempData["Message"] = "Delete brand successfully !";
+            TempData["Message"] = "Delete mobile successfully !";
             return RedirectToAction("Index");
         }
 
         //xem thông tin theo id
         public IActionResult Detail(int id)
         {
-            var brand = context.Brands.Include(b => b.Mobiles)  //Brand - Mobile : 1 - M
-                                     .Include(b => b.Country)  //Brand - Country : M - 1
-                                     .FirstOrDefault(b => b.Id == id);
-            return View(brand);
+            var mobile = context.Mobiles.Include(m => m.Brand)  //Brand - Mobile : 1 - M
+                                     .ThenInclude(b => b.Country)  //Brand - Country : M - 1
+                                     .FirstOrDefault(m => m.Id == id);
+            return View(mobile);
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Countries = context.Countries.ToList();
+            ViewBag.Brands = context.Brands.ToList();
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Brand brand)
+        public IActionResult Create(Mobile mobile)
         {
             if (ModelState.IsValid)
             {
-                context.Brands.Add(brand);
+                context.Mobiles.Add(mobile);
                 context.SaveChanges();
-                TempData["Message"] = "Create brand successfully !";
+                TempData["Message"] = "Create mobile successfully !";
                 return RedirectToAction(nameof(Index));
             }
-            return View(brand);
+            return View(mobile);
         }
 
         //create a http get edit method
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            ViewBag.Countries = context.Countries.ToList();
-            var brand = context.Brands.Find(id);
-            return View(brand);
+            ViewBag.Brands = context.Brands.ToList();
+            var mobile = context.Mobiles.Find(id);
+            return View(mobile);
         }
 
         [HttpPost]
-        public IActionResult Edit(Brand brand)
+        public IActionResult Edit(Mobile mobile)
         {
             if (ModelState.IsValid)
             {
-                context.Update(brand);
+                context.Update(mobile);
                 context.SaveChanges();
-                TempData["Message"] = "Edit brand successfully !";
+                TempData["Message"] = "Edit mobile successfully !";
                 return RedirectToAction(nameof(Index));
             }
-            return View(brand);
+            return View(mobile);
+        }
+
+        public IActionResult Store()
+        {
+            return View();
         }
     }
 }

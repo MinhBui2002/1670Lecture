@@ -1,0 +1,19 @@
+﻿@model demoWeb.Models.Brand
+
+<form class="card p-3 bg-light" asp-controller="Brand" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <h3 class="text text-primary">Edit brand</h3>
+    <div class="form-group">
+        <label class="form-control" asp-for="Name" class="text text-success"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text text-warning"></span>
+    </div>
+    <div class="form-group">
+        <label class="form-control" asp-for="CountryId" class="text text-success"></label>
+        <select asp-for="CountryId" class="form-control" asp-items="@(new SelectList(ViewBag.Countries,"Id","Name"))">
+            <option>Select one</option>
+        </select>
+        <span asp-validation-for="CountryId" class="text text-warning"></span>
+    </div>
+
+</form>

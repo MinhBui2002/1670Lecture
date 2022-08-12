@@ -16,6 +16,7 @@ namespace demoWeb.Data
         }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Mobile> Mobiles { get; set; }
+        public DbSet<Country> Countries { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -92,12 +93,12 @@ namespace demoWeb.Data
         private void SeedBrand(ModelBuilder builder)
         {
             builder.Entity<Brand>().HasData(
-                new Brand { Id = 1, Name = "Samsung" },
-                new Brand { Id = 2, Name = "Apple" },
-                new Brand { Id = 3, Name = "Huawei" },
-                new Brand { Id = 4, Name = "Xiaomi" },
-                new Brand { Id = 5, Name = "Oppo" },
-                new Brand { Id = 6, Name = "Vivo" }
+                new Brand { Id = 1,CountryId = 1, Name = "Samsung" },
+                new Brand { Id = 2,CountryId = 2, Name = "Apple" },
+                new Brand { Id = 3,CountryId = 3, Name = "Huawei" },
+                new Brand { Id = 4,CountryId = 1, Name = "Xiaomi" },
+                new Brand { Id = 5,CountryId = 2, Name = "Oppo" },
+                new Brand { Id = 6,CountryId = 3, Name = "Vivo" }
                 );
 
         }
