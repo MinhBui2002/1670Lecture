@@ -1,0 +1,47 @@
+﻿@model ICollection<Mobile>
+
+<div class="container text-center mt-3">
+    @if (@TempData["Message"] != null)
+    {
+        <p class="alert alert-danger">@TempData["Message"]</p>
+    }
+    <table class="table table-bordered">
+        <tr>
+            <th colspan="3" class="h3 bg-light text-success">Mobile List</th>
+            <th class="col-md-4">
+                <a class="btn btn-primary" asp-controller="Mobile" asp-action="Create">
+                    Add
+                </a>
+            </th>
+        </tr>
+        <tr>
+            <th>Mobile Id</th>
+            <th>Mobile Name</th>
+            <th>Mobile Image</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var mobile in Model)
+        {
+            <tr>
+                <td>@mobile.Id</td>
+                <td>
+                    <a class="font-weight-bold" asp-controller="Mobile" asp-action="Detail" asp-route-id="@mobile.Id">
+                        <img src="@mobile.Image" width="100" height="100">
+                    </a>
+                </td>
+                <td>
+                    @mobile.Name
+                </td>
+                <td>
+                    <a class="btn btn-warning" asp-controller="Mobile" asp-action="Edit" asp-route-id="@mobile.Id">
+                        Edit
+                    </a>
+                    <a class="btn btn-danger" asp-controller="Mobile" asp-action="Delete" asp-route-id="@mobile.Id"
+                   onclick="    return confirm('Are you sure to delete this mobile ?');">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

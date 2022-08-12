@@ -1,0 +1,44 @@
+﻿@model demoWeb.Models.Mobile
+
+<div class="container col-md-6 text-center mt-3">
+    <form class="card p-3 bg-light" asp-controller="Mobile" asp-action="Edit" method="post">
+        <h3 class="text text-primary">Edit mobile</h3>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="Name" class="text text-success"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Quantity" class="text text-success"></label>
+            <input asp-for="Quantity" class="form-control" />
+            <span asp-validation-for="Quantity" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="text text-success"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Image" class="text text-success"></label>
+            <input asp-for="Image" class="form-control" />
+            <span asp-validation-for="Image" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Color" class="text text-success"></label>
+            <select asp-for="Color" class="form-control" asp-items="Html.GetEnumSelectList<Color>()">
+                <option>Select one</option>
+             </select>
+            <span asp-validation-for="Color" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="BrandId" class="text text-success"></label>
+            <select asp-for="BrandId" class="form-control" asp-items="@(new SelectList(ViewBag.Brands,"Id","Name"))">
+                <option>Select one</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Edit" />
+        </div>
+    </form>
+</div>
