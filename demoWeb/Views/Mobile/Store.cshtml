@@ -5,12 +5,12 @@
         <div class="row">
             @foreach (var mobile in Model)
             {
-                <div class="col-md-4 p-3">
+                <div class="col-md-3 p-3">
                     <div class="card">
                         <div class="card-body">
-						    <img class="card-img-top" src="@mobile.Image" width="150" height="100">
-                            <h4 class="text text-primary">@mobile.Name</h5>
-                            <h5 class="text text-success">@mobile.Price $</p>
+                            <img class="card-img-top" src="@mobile.Image" width="120" height="180">
+                            <h4 class="text text-primary mt-3">@mobile.Name</h4>
+                            <h5 class="text text-success">@mobile.Price $</h5>
                         </div>
                         @if (mobile.Quantity == 0)
                         {
@@ -21,13 +21,13 @@
                         else
                         {
                             <div class="card-subtitle">
-                                <h6 class="text text-danger">@mobile.Quantity</p>
+                                <h5 class="text text-danger">In-stock: @mobile.Quantity</h5>
                             </div>
                             <div class="card-footer">
                                 <form asp-controller="Order" asp-action="Detail">
                                     <input type="hidden" name="id" value="@mobile.Id" />
                                     <input class="form-control" type="number" name="quantity" min="1" max="@mobile.Quantity">
-                                    <div class="form-group">
+                                    <div class="form-group mt-3">
                                         <input type="submit" class="btn btn-success" value="Add to cart" />
                                     </div>
                                 </form>

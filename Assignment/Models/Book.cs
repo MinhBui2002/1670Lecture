@@ -13,10 +13,10 @@ namespace Assignment.Models
         public string Description { get; set; }
         [Url]
         public string Image { get; set; }
-        public decimal Price { get; set; }
+        public double Price { get; set; }
         [Range(1, 100)]
         public int Quantity { get; set; }
-        [Display(Name = "Brand name")]
+        [Display(Name = "Category name")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
     }
