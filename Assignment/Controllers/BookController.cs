@@ -23,8 +23,8 @@ namespace Assignment.Controllers
         
         public IActionResult Delete(int id)
         {
-            var mobile = context.Books.Find(id);
-            context.Books.Remove(mobile);
+            var book = context.Books.Find(id);
+            context.Books.Remove(book);
             context.SaveChanges();
             TempData["Message"] = "Delete book successfully !";
             return RedirectToAction("Index");
@@ -33,14 +33,19 @@ namespace Assignment.Controllers
         //xem thông tin theo id
         public IActionResult Detail(int id)
         {
-            var mobile = context.Books.Include(c => c.Category);
-            return View(mobile);
+            var book = context.Books
+                .Include(c => c.Author)
+                .Include(c => c.Category)
+                .FirstOrDefault(c => c.Id == id);
+            return View(book);
         }
 
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.Authors = context.Authors.ToList();
             ViewBag.Categories = context.Categories.ToList();
+
             return View();
         }
 
@@ -61,6 +66,7 @@ namespace Assignment.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            ViewBag.Authors = context.Authors.ToList();
             ViewBag.Categories = context.Categories.ToList();
             var book = context.Books.Find(id);
             return View(book);
@@ -77,6 +83,11 @@ namespace Assignment.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(book);
+        }
+
+        public IActionResult Store()
+        {
+            return View(context.Books.ToList());
         }
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Assignment.Data.Migrations
+namespace Assignment.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -30,7 +30,8 @@ namespace Assignment.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -70,6 +71,9 @@ namespace Assignment.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -88,6 +92,8 @@ namespace Assignment.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AuthorId");
+
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Books");
@@ -96,6 +102,7 @@ namespace Assignment.Data.Migrations
                         new
                         {
                             Id = 1,
+                            AuthorId = 1,
                             CategoryId = 1,
                             Image = "https://bookbuy.vn/Res/Images/Product/harry-potter-tap-8-harry-porter-and-the-cursed-child-parts-one-two-special-rehearsal-edition-script-_52322_1.jpg",
                             Price = 120.0,
@@ -105,6 +112,7 @@ namespace Assignment.Data.Migrations
                         new
                         {
                             Id = 2,
+                            AuthorId = 2,
                             CategoryId = 1,
                             Image = "https://images-na.ssl-images-amazon.com/images/I/71Jk3baRdnL.jpg",
                             Price = 120.0,
@@ -114,6 +122,7 @@ namespace Assignment.Data.Migrations
                         new
                         {
                             Id = 3,
+                            AuthorId = 2,
                             CategoryId = 3,
                             Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                             Price = 120.0,
@@ -123,6 +132,7 @@ namespace Assignment.Data.Migrations
                         new
                         {
                             Id = 4,
+                            AuthorId = 3,
                             CategoryId = 4,
                             Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                             Price = 120.0,
@@ -132,6 +142,7 @@ namespace Assignment.Data.Migrations
                         new
                         {
                             Id = 5,
+                            AuthorId = 4,
                             CategoryId = 2,
                             Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                             Price = 120.0,
@@ -141,6 +152,7 @@ namespace Assignment.Data.Migrations
                         new
                         {
                             Id = 6,
+                            AuthorId = 1,
                             CategoryId = 3,
                             Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                             Price = 120.0,
@@ -150,6 +162,7 @@ namespace Assignment.Data.Migrations
                         new
                         {
                             Id = 7,
+                            AuthorId = 2,
                             CategoryId = 4,
                             Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                             Price = 120.0,
@@ -159,6 +172,7 @@ namespace Assignment.Data.Migrations
                         new
                         {
                             Id = 8,
+                            AuthorId = 3,
                             CategoryId = 5,
                             Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                             Price = 120.0,
@@ -168,6 +182,7 @@ namespace Assignment.Data.Migrations
                         new
                         {
                             Id = 9,
+                            AuthorId = 4,
                             CategoryId = 6,
                             Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                             Price = 120.0,
@@ -177,58 +192,12 @@ namespace Assignment.Data.Migrations
                         new
                         {
                             Id = 10,
+                            AuthorId = 1,
                             CategoryId = 2,
                             Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                             Price = 120.0,
                             Quantity = 30,
                             Title = "The Stand"
-                        });
-                });
-
-            modelBuilder.Entity("Assignment.Models.BookAuthor", b =>
-                {
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BookId", "AuthorId");
-
-                    b.HasIndex("AuthorId");
-
-                    b.ToTable("BookAuthor");
-
-                    b.HasData(
-                        new
-                        {
-                            BookId = 1,
-                            AuthorId = 1
-                        },
-                        new
-                        {
-                            BookId = 1,
-                            AuthorId = 3
-                        },
-                        new
-                        {
-                            BookId = 3,
-                            AuthorId = 4
-                        },
-                        new
-                        {
-                            BookId = 4,
-                            AuthorId = 2
-                        },
-                        new
-                        {
-                            BookId = 5,
-                            AuthorId = 1
-                        },
-                        new
-                        {
-                            BookId = 6,
-                            AuthorId = 3
                         });
                 });
 
@@ -339,21 +308,21 @@ namespace Assignment.Data.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "723bdd5c-7c67-471c-bb78-870526dabf8e",
+                            ConcurrencyStamp = "e7d6badc-7f90-4faa-b31c-3ed20e46d776",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "eee7dd23-d00b-4710-b495-9abb92d3cd69",
+                            ConcurrencyStamp = "0ad64b44-2f8f-4310-baed-25e892a61c58",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "0d476cc8-41b9-477b-ae5c-44c9a7f76271",
+                            ConcurrencyStamp = "80575f3b-6216-4b8b-88d7-9e6a530bdcc8",
                             Name = "StoreOwner",
                             NormalizedName = "StoreOwner"
                         });
@@ -452,14 +421,14 @@ namespace Assignment.Data.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "90275bf0-9418-4e7b-b47f-32070ac8f009",
+                            ConcurrencyStamp = "8c5c65c9-b094-4550-a87b-8402c0e8018c",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAT57f2drrRFvPWZhKKfdhTOD6DI0y/IENVNTCjNvjToXE6Qpi2j6FAgfNle1nujSw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGb7LsXmecSNFGdXrPavLF8sva+tJUeN/n2MIl6jZfvQxqQUaMYJpiLmZCzBR3YkFQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8ef99b29-4ac1-4e4d-977d-40b70b8348b5",
+                            SecurityStamp = "6f826f16-79cf-42fc-acff-ef5b9741c421",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         },
@@ -467,14 +436,14 @@ namespace Assignment.Data.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6e4b98f1-3655-4f3b-bb75-3c9f51db54cd",
+                            ConcurrencyStamp = "b067a75b-bc25-4161-b606-c495eee78c46",
                             Email = "customer@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKvsDgWVi+y8CiF+ojZzXTdtKpDNYzBrXVckgsp+LldBHe83zamKw5x4NBQOlm2NbA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEL6J6zHpNwRFNaBpV9CtC9rgS6i5V6/APBTkYfN+I9GmNkZ2Th84qphAeM1iiEke5g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bb5f4aec-c0b4-4931-943c-aae3e5d6e74f",
+                            SecurityStamp = "4ebfc2d6-d066-4a4f-93fc-c353b59e4e79",
                             TwoFactorEnabled = false,
                             UserName = "customer@gmail.com"
                         },
@@ -482,14 +451,14 @@ namespace Assignment.Data.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fe95c721-04d5-4b30-8e10-a62b912fecc1",
+                            ConcurrencyStamp = "a5aab275-02c7-4257-8983-8d67460b6205",
                             Email = "storeowner@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "storeowner@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFS9Cgbgx5samYZayW05uUWp5UPO4e0amfPVjv2Gn9f96QJ9fOjK7wueLqPIU66Qqg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBAbUeuX9L9GELKTRwr34NaRdIbHrysSffahVRMW3aG+8S0TvxGFgNdHhZA1yQad2w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cc7cdf23-db12-4264-bd91-baefb05bb07c",
+                            SecurityStamp = "bdf91d8c-d282-4ec8-b479-d593f973ad36",
                             TwoFactorEnabled = false,
                             UserName = "storeowner@gmail.com"
                         });
@@ -598,24 +567,15 @@ namespace Assignment.Data.Migrations
 
             modelBuilder.Entity("Assignment.Models.Book", b =>
                 {
-                    b.HasOne("Assignment.Models.Category", "Category")
-                        .WithMany("Books")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Assignment.Models.BookAuthor", b =>
-                {
                     b.HasOne("Assignment.Models.Author", "Author")
-                        .WithMany("BookAuthor")
+                        .WithMany("Book")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Assignment.Models.Book", "Book")
-                        .WithMany("BookAuthor")
-                        .HasForeignKey("BookId")
+                    b.HasOne("Assignment.Models.Category", "Category")
+                        .WithMany("Books")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

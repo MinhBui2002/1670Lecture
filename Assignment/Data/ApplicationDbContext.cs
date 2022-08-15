@@ -19,7 +19,7 @@ namespace Assignment.Data
 
         public DbSet<Order> Order { get; set; }
         public DbSet<Author> Authors { get; set; }
-        public DbSet<BookAuthor> BookAuthor { get; set; }
+        
 
 
 
@@ -29,7 +29,6 @@ namespace Assignment.Data
             SeedAuthor(builder);
             SeedCategory(builder);
             SeedBook(builder);
-            SeedBookAuthor(builder);
             SeedUser(builder);
             SeedRole(builder);
             SeedUserRole(builder);
@@ -66,44 +65,7 @@ namespace Assignment.Data
                 );
         }
 
-        private void SeedBookAuthor(ModelBuilder builder)
-        {
-            builder.Entity<BookAuthor>().HasKey(
-                    b => new { b.BookId, b.AuthorId }
-                );
-            builder.Entity<BookAuthor>().HasData(
-                new BookAuthor
-                {
-                    BookId = 1,
-                    AuthorId = 1
-                },
-                new BookAuthor
-                {
-                    BookId = 1,
-                    AuthorId = 3
-                },
-                new BookAuthor
-                {
-                    BookId = 3,
-                    AuthorId = 4
-                },
-                new BookAuthor
-                {
-                    BookId = 4,
-                    AuthorId = 2
-                },
-                new BookAuthor
-                {
-                    BookId = 5,
-                    AuthorId = 1
-                },
-                new BookAuthor
-                {
-                    BookId = 6,
-                    AuthorId = 3
-                }
-                );
-        }
+       
 
         private void SeedUserRole(ModelBuilder builder)
         {
@@ -198,7 +160,8 @@ namespace Assignment.Data
                     Price = 120,
                     Image = "https://bookbuy.vn/Res/Images/Product/harry-potter-tap-8-harry-porter-and-the-cursed-child-parts-one-two-special-rehearsal-edition-script-_52322_1.jpg",
                     Quantity = 30,
-                    CategoryId = 1
+                    CategoryId = 1,
+                    AuthorId = 1
                 },
                 new Book
                 {
@@ -207,7 +170,8 @@ namespace Assignment.Data
                     Price = 120,
                     Image = "https://images-na.ssl-images-amazon.com/images/I/71Jk3baRdnL.jpg",
                     Quantity = 30,
-                    CategoryId = 1
+                    CategoryId = 1,
+                    AuthorId = 2
                 },
                 new Book
                 {
@@ -216,7 +180,8 @@ namespace Assignment.Data
                     Price = 120,
                     Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                     Quantity = 30,
-                    CategoryId = 3
+                    CategoryId = 3,
+                    AuthorId = 2
                 },
                 new Book
                 {
@@ -225,7 +190,9 @@ namespace Assignment.Data
                     Price = 120,
                     Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                     Quantity = 30,
-                    CategoryId = 4
+                    CategoryId = 4,
+                    AuthorId = 3
+
                 },
                 new Book
                 {
@@ -234,7 +201,8 @@ namespace Assignment.Data
                     Price = 120,
                     Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                     Quantity = 30,
-                    CategoryId = 2
+                    CategoryId = 2,
+                    AuthorId = 4
                 },
                 new Book
                 {
@@ -243,7 +211,8 @@ namespace Assignment.Data
                     Price = 120,
                     Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                     Quantity = 30,
-                    CategoryId = 3
+                    CategoryId = 3,
+                    AuthorId = 1
                 },
                 new Book
                 {
@@ -252,7 +221,8 @@ namespace Assignment.Data
                     Price = 120,
                     Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                     Quantity = 30,
-                    CategoryId = 4
+                    CategoryId = 4,
+                    AuthorId = 2
                 },
                 new Book
                 {
@@ -261,7 +231,8 @@ namespace Assignment.Data
                     Price = 120,
                     Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                     Quantity = 30,
-                    CategoryId = 5
+                    CategoryId = 5,
+                    AuthorId = 3
                 },
                 new Book
                 {
@@ -270,7 +241,8 @@ namespace Assignment.Data
                     Price = 120,
                     Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                     Quantity = 30,
-                    CategoryId = 6
+                    CategoryId = 6,
+                    AuthorId = 4
                 },
                 new Book
                 {
@@ -279,7 +251,8 @@ namespace Assignment.Data
                     Price = 120,
                     Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
                     Quantity = 30,
-                    CategoryId = 2
+                    CategoryId = 2,
+                    AuthorId = 1
                 }
                 );
         }
