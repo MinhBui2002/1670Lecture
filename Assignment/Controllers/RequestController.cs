@@ -1,10 +1,13 @@
 ﻿using Assignment.Data;
 using Assignment.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Linq;
 
 namespace Assignment.Controllers
 {
+    
     public class RequestController : Controller
     {
         private ApplicationDbContext context;
@@ -13,13 +16,14 @@ namespace Assignment.Controllers
             context = applicationDbContext;
         }
 
+        [Authorize(Roles = "StoreOwner")]
         public IActionResult Index()
         {
             return View(context.Requests.ToList());
         }
 
 
-       
+        [Authorize(Roles = "StoreOwner")]
         [HttpGet]
         public IActionResult MakeRequest()
         {
@@ -27,7 +31,7 @@ namespace Assignment.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = "StoreOwner")]
         [HttpPost]
         public IActionResult MakeRequest(Request request)
         {
@@ -43,6 +47,7 @@ namespace Assignment.Controllers
         }
 
         //delete the request
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             var request = context.Requests.Find(id);
@@ -52,6 +57,7 @@ namespace Assignment.Controllers
         }
 
         //display all requests
+        [Authorize(Roles = "Admin")]
         public IActionResult DisplayRequests()
         {
             return View(context.Requests.ToList());

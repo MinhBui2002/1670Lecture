@@ -1,5 +1,6 @@
 ﻿using Assignment.Data;
 using Assignment.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,6 +17,7 @@ namespace Assignment.Controllers
             context = applicationDbContext;
         }
 
+        [Authorize(Roles = "Customer")]
         [HttpPost]
         public IActionResult Make(int id, int quantity)
         {
@@ -42,7 +44,7 @@ namespace Assignment.Controllers
             return RedirectToAction("Store", "Book");
         }
 
-        //delete an order
+        [Authorize(Roles = "Customer,Admin")]
         public IActionResult Delete(int id)
         {
             var order = context.Order.Find(id);
@@ -51,7 +53,7 @@ namespace Assignment.Controllers
             return RedirectToAction("Index", "Order");
         }
 
-        //display all order
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var orders = context.Order

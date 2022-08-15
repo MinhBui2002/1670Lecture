@@ -1,7 +1,9 @@
 ﻿using Assignment.Data;
 using Assignment.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.Linq;
 
 namespace Assignment.Controllers
@@ -14,11 +16,13 @@ namespace Assignment.Controllers
             context = applicationDbContext;
         }
 
+        [Authorize(Roles = "StoreOwner, Admin")]
         public IActionResult Index()
         {
             return View(context.Categories.ToList());
         }
-        
+
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             var category = context.Categories.Find(id);
@@ -27,7 +31,8 @@ namespace Assignment.Controllers
             TempData["Message"] = "Delete category successfully !";
             return RedirectToAction(nameof(Index));
         }
-        
+
+        [Authorize(Roles = "Admin")]
         public IActionResult Detail(int id)
         {
             var category = context.Categories.Include(c => c.Books)
@@ -35,17 +40,21 @@ namespace Assignment.Controllers
             return View(category);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult Create(Category category)
+        public IActionResult Create(string name)
         {
+            var category = new Category();
             if (ModelState.IsValid)
             {
+                category.Name = name;
                 context.Categories.Add(category);
                 context.SaveChanges();
                 TempData["Message"] = "Create category successfully !";
@@ -54,6 +63,7 @@ namespace Assignment.Controllers
             return View(category);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -61,6 +71,7 @@ namespace Assignment.Controllers
             return View(category);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Edit(Category category)
         {

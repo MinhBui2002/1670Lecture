@@ -1,5 +1,6 @@
 ﻿using Assignment.Data;
 using Assignment.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -14,13 +15,14 @@ namespace Assignment.Controllers
             context = applicationDbContext;
         }
 
-        
+        [Authorize(Roles = "StoreOwner")]
         public IActionResult Index()
         {
             return View(context.Books.ToList());
         }
 
-        
+
+        [Authorize(Roles = "StoreOwner")]
         public IActionResult Delete(int id)
         {
             var book = context.Books.Find(id);
@@ -31,6 +33,7 @@ namespace Assignment.Controllers
         }
 
         //xem thông tin theo id
+        
         public IActionResult Detail(int id)
         {
             var book = context.Books
@@ -40,6 +43,7 @@ namespace Assignment.Controllers
             return View(book);
         }
 
+        [Authorize(Roles = "StoreOwner")]
         [HttpGet]
         public IActionResult Create()
         {
@@ -49,6 +53,7 @@ namespace Assignment.Controllers
             return View();
         }
 
+        [Authorize(Roles = "StoreOwner")]
         [HttpPost]
         public IActionResult Create(Book book)
         {
@@ -62,7 +67,7 @@ namespace Assignment.Controllers
             return View(book);
         }
 
-        //create a http get edit method
+        [Authorize(Roles = "StoreOwner")]
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -72,6 +77,7 @@ namespace Assignment.Controllers
             return View(book);
         }
 
+        [Authorize(Roles = "StoreOwner")]
         [HttpPost]
         public IActionResult Edit(Book book)
         {
@@ -85,6 +91,7 @@ namespace Assignment.Controllers
             return View(book);
         }
 
+        
         public IActionResult Store()
         {
             return View(context.Books.ToList());

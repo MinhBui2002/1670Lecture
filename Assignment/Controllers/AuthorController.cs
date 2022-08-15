@@ -1,11 +1,13 @@
 ﻿using Assignment.Data;
 using Assignment.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace Assignment.Controllers
 {
+    [Authorize(Roles = "StoreOwner")]
     public class AuthorController : Controller
     {
         private ApplicationDbContext context;
