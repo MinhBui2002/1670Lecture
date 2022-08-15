@@ -1,6 +1,7 @@
 ﻿using Assignment.Data;
 using Assignment.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
@@ -38,15 +39,24 @@ namespace Assignment.Controllers
             //gửi về thông báo order thành công
             TempData["Success"] = "Order book successfully !";
             //redirect về trang book store
-            return RedirectToAction("Store", "Mobile");
+            return RedirectToAction("Store", "Book");
         }
 
-
+        //delete an order
+        public IActionResult Delete(int id)
+        {
+            var order = context.Order.Find(id);
+            context.Order.Remove(order);
+            context.SaveChanges();
+            return RedirectToAction("Index", "Order");
+        }
 
         //display all order
         public IActionResult Index()
         {
-            var orders = context.Order.ToList();
+            var orders = context.Order
+                .Include(c => c.Book)
+                .ToList();
             return View(orders);
         }
     }
