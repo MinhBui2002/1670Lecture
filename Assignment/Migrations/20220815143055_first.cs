@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Assignment.Migrations
 {
-    public partial class fuck : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -71,6 +71,20 @@ namespace Assignment.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Requests",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Status = table.Column<bool>(nullable: false),
+                    CategoryName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Requests", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -237,9 +251,9 @@ namespace Assignment.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "1", "e7d6badc-7f90-4faa-b31c-3ed20e46d776", "Admin", "Admin" },
-                    { "2", "0ad64b44-2f8f-4310-baed-25e892a61c58", "Customer", "Customer" },
-                    { "3", "80575f3b-6216-4b8b-88d7-9e6a530bdcc8", "StoreOwner", "StoreOwner" }
+                    { "1", "b8392319-aa31-480c-9250-fba778f55911", "Admin", "Admin" },
+                    { "2", "3d99ad09-1851-40e9-b699-e1eea63aac23", "Customer", "Customer" },
+                    { "3", "ae86ad26-ee70-48d5-959f-c50100a89c7d", "StoreOwner", "StoreOwner" }
                 });
 
             migrationBuilder.InsertData(
@@ -247,9 +261,9 @@ namespace Assignment.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "8c5c65c9-b094-4550-a87b-8402c0e8018c", "admin@gmail.com", false, false, null, null, "admin@gmail.com", "AQAAAAEAACcQAAAAEGb7LsXmecSNFGdXrPavLF8sva+tJUeN/n2MIl6jZfvQxqQUaMYJpiLmZCzBR3YkFQ==", null, false, "6f826f16-79cf-42fc-acff-ef5b9741c421", false, "admin@gmail.com" },
-                    { "2", 0, "b067a75b-bc25-4161-b606-c495eee78c46", "customer@gmail.com", false, false, null, null, "customer@gmail.com", "AQAAAAEAACcQAAAAEL6J6zHpNwRFNaBpV9CtC9rgS6i5V6/APBTkYfN+I9GmNkZ2Th84qphAeM1iiEke5g==", null, false, "4ebfc2d6-d066-4a4f-93fc-c353b59e4e79", false, "customer@gmail.com" },
-                    { "3", 0, "a5aab275-02c7-4257-8983-8d67460b6205", "storeowner@gmail.com", false, false, null, null, "storeowner@gmail.com", "AQAAAAEAACcQAAAAEBAbUeuX9L9GELKTRwr34NaRdIbHrysSffahVRMW3aG+8S0TvxGFgNdHhZA1yQad2w==", null, false, "bdf91d8c-d282-4ec8-b479-d593f973ad36", false, "storeowner@gmail.com" }
+                    { "1", 0, "bb04d96c-8ba0-40e5-9d15-c323f0b7cbe2", "admin@gmail.com", false, false, null, null, "admin@gmail.com", "AQAAAAEAACcQAAAAEKUxjSHnGXlDENBxPS8sPzL9jFhT88kP3449hr1arxyAogI4p2p1pVYRf/uK+5o6rw==", null, false, "010ecb1b-9583-4680-b07b-6a7c5e88d756", false, "admin@gmail.com" },
+                    { "2", 0, "c4ef0346-e2a6-4239-8bc8-83e8967a5d53", "customer@gmail.com", false, false, null, null, "customer@gmail.com", "AQAAAAEAACcQAAAAEHTQgDpZBVQvCIWL96a0Uhq20qqJk7UF/3QW8SkMPyoAIRCa/mjEt6mQz25nVBhMGw==", null, false, "8a21d6db-6930-4bdc-b23c-7d6165ba1406", false, "customer@gmail.com" },
+                    { "3", 0, "ff5b6e2b-3369-4780-950a-c8f8d802e659", "storeowner@gmail.com", false, false, null, null, "storeowner@gmail.com", "AQAAAAEAACcQAAAAEFEiUWitAh9Hw7ouYCVn+J8edXV3DnFZstzoL+O8OLff5nx8foQljqYooT0SMTfYsA==", null, false, "6dde91c3-f6e1-446b-8737-bc5ed79b03ab", false, "storeowner@gmail.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -377,6 +391,9 @@ namespace Assignment.Migrations
 
             migrationBuilder.DropTable(
                 name: "Order");
+
+            migrationBuilder.DropTable(
+                name: "Requests");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

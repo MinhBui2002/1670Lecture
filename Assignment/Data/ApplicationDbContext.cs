@@ -19,7 +19,9 @@ namespace Assignment.Data
 
         public DbSet<Order> Order { get; set; }
         public DbSet<Author> Authors { get; set; }
-        
+
+        public DbSet<Request> Requests { get; set; }
+
 
 
 
