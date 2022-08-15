@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace Assignment.Models
 {
@@ -9,8 +10,6 @@ namespace Assignment.Models
         [MinLength(3)]
         [MaxLength(50)]
         public string Title { get; set; }
-        public string Author { get; set; }
-        public string Description { get; set; }
         [Url]
         public string Image { get; set; }
         public double Price { get; set; }
@@ -19,5 +18,7 @@ namespace Assignment.Models
         [Display(Name = "Category name")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        public ICollection<BookAuthor> BookAuthor { get; set; }
     }
 }

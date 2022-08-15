@@ -18,18 +18,91 @@ namespace Assignment.Data
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<Order> Order { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<BookAuthor> BookAuthor { get; set; }
 
 
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            SeedAuthor(builder);
             SeedCategory(builder);
             SeedBook(builder);
+            SeedBookAuthor(builder);
             SeedUser(builder);
             SeedRole(builder);
             SeedUserRole(builder);
 
+        }
+
+        private void SeedAuthor(ModelBuilder builder)
+        {
+            builder.Entity<Author>().HasData(
+                new Author
+                {
+                    Id = 1,
+                    Name = "J.K. Rowling",
+                    Country = "United Kingdom"
+                },
+                new Author
+                {
+                    Id = 2,
+                    Name = "J.R.R. Tolkien",
+                    Country = "United States"
+                },
+                new Author
+                {
+                    Id = 3,
+                    Name = "Stephen King",
+                    Country = "United States"
+                },
+                new Author
+                {
+                    Id = 4,
+                    Name = "George R.R. Martin",
+                    Country = "United States"
+                }
+                );
+        }
+
+        private void SeedBookAuthor(ModelBuilder builder)
+        {
+            builder.Entity<BookAuthor>().HasKey(
+                    b => new { b.BookId, b.AuthorId }
+                );
+            builder.Entity<BookAuthor>().HasData(
+                new BookAuthor
+                {
+                    BookId = 1,
+                    AuthorId = 1
+                },
+                new BookAuthor
+                {
+                    BookId = 1,
+                    AuthorId = 3
+                },
+                new BookAuthor
+                {
+                    BookId = 3,
+                    AuthorId = 4
+                },
+                new BookAuthor
+                {
+                    BookId = 4,
+                    AuthorId = 2
+                },
+                new BookAuthor
+                {
+                    BookId = 5,
+                    AuthorId = 1
+                },
+                new BookAuthor
+                {
+                    BookId = 6,
+                    AuthorId = 3
+                }
+                );
         }
 
         private void SeedUserRole(ModelBuilder builder)
@@ -117,12 +190,134 @@ namespace Assignment.Data
 
         private void SeedBook(ModelBuilder builder)
         {
-            throw new NotImplementedException();
+            builder.Entity<Book>().HasData(
+                new Book
+                {
+                    Id = 1,
+                    Title = "Harry Potter",
+                    Price = 120,
+                    Image = "https://bookbuy.vn/Res/Images/Product/harry-potter-tap-8-harry-porter-and-the-cursed-child-parts-one-two-special-rehearsal-edition-script-_52322_1.jpg",
+                    Quantity = 30,
+                    CategoryId = 1
+                },
+                new Book
+                {
+                    Id = 2,
+                    Title = "Godfather",
+                    Price = 120,
+                    Image = "https://images-na.ssl-images-amazon.com/images/I/71Jk3baRdnL.jpg",
+                    Quantity = 30,
+                    CategoryId = 1
+                },
+                new Book
+                {
+                    Id = 3,
+                    Title = "The Shining",
+                    Price = 120,
+                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Quantity = 30,
+                    CategoryId = 3
+                },
+                new Book
+                {
+                    Id = 4,
+                    Title = "The Stand",
+                    Price = 120,
+                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Quantity = 30,
+                    CategoryId = 4
+                },
+                new Book
+                {
+                    Id = 5,
+                    Title = "The Shining",
+                    Price = 120,
+                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Quantity = 30,
+                    CategoryId = 2
+                },
+                new Book
+                {
+                    Id = 6,
+                    Title = "The Shining",
+                    Price = 120,
+                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Quantity = 30,
+                    CategoryId = 3
+                },
+                new Book
+                {
+                    Id = 7,
+                    Title = "The Stand",
+                    Price = 120,
+                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Quantity = 30,
+                    CategoryId = 4
+                },
+                new Book
+                {
+                    Id = 8,
+                    Title = "The Shining",
+                    Price = 120,
+                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Quantity = 30,
+                    CategoryId = 5
+                },
+                new Book
+                {
+                    Id = 9,
+                    Title = "The Shining",
+                    Price = 120,
+                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Quantity = 30,
+                    CategoryId = 6
+                },
+                new Book
+                {
+                    Id = 10,
+                    Title = "The Stand",
+                    Price = 120,
+                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Quantity = 30,
+                    CategoryId = 2
+                }
+                );
         }
 
         private void SeedCategory(ModelBuilder builder)
         {
-            throw new NotImplementedException();
+            builder.Entity<Category>().HasData(
+                new Category
+                {
+                    Id = 1,
+                    Name = "Thriller"
+                },
+                new Category
+                {
+                    Id = 2,
+                    Name = "Drama"
+                },
+                new Category
+                {
+                    Id = 3,
+                    Name = "Horror"
+                },
+                new Category
+                {
+                    Id = 4,
+                    Name = "Mystery"
+                },
+                new Category
+                {
+                    Id = 5,
+                    Name = "Romance"
+                },
+                new Category
+                {
+                    Id = 6,
+                    Name = "Sci-Fi"
+                }
+                );
         }
     }
 }

@@ -18,9 +18,9 @@ namespace Assignment.Controllers
         [HttpPost]
         public IActionResult Make(int id, int quantity)
         {
-            //tạo Order mới
+            
             var order = new Order();
-            //set giá trị trong từng thuộc tính của Order
+            
             var book = context.Books.Find(id);
             order.Book = book;
             order.BookId = id;
