@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using Microsoft.AspNetCore.Identity;
 using System.Linq;
 
 namespace Assignment.Controllers
@@ -61,5 +62,21 @@ namespace Assignment.Controllers
                 .ToList();
             return View(orders);
         }
+        // renders orders of the current user
+        [Authorize(Roles = "Customer")]
+        public IActionResult IndexForCurrent()
+        {
+            var orders = context.Order
+                .Include(c => c.Book)
+                .Where(c => c.UserEmail == User.Identity.Name)
+                .ToList();
+            return View(orders);
+        }
+
+
+
+
+
+
     }
 }

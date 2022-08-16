@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Assignment.Controllers
 {
-    [Authorize(Roles = "StoreOwner")]
+    
     public class AuthorController : Controller
     {
         private ApplicationDbContext context;
@@ -20,7 +20,7 @@ namespace Assignment.Controllers
         {
             return View(context.Authors.ToList());
         }
-
+        [Authorize(Roles = "StoreOwner")]
         public IActionResult Delete(int id)
         {
             var author = context.Authors.Find(id);
@@ -37,12 +37,14 @@ namespace Assignment.Controllers
             return View(author);
         }
 
+        [Authorize(Roles = "StoreOwner")]
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "StoreOwner")]
         [HttpPost]
         public IActionResult Create(Author author)
         {
@@ -56,6 +58,7 @@ namespace Assignment.Controllers
             return View(author);
         }
 
+        [Authorize(Roles = "StoreOwner")]
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -63,6 +66,7 @@ namespace Assignment.Controllers
             return View(author);
         }
 
+        [Authorize(Roles = "StoreOwner")]
         [HttpPost]
         public IActionResult Edit(Author author)
         {
