@@ -41,7 +41,7 @@ namespace Assignment.Controllers
                 context.Add(request);
                 context.SaveChanges();
                 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(MakeRequest));
             }
             return View(request);
         }
