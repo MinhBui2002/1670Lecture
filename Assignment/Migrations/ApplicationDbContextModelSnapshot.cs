@@ -124,7 +124,7 @@ namespace Assignment.Migrations
                             Id = 3,
                             AuthorId = 2,
                             CategoryId = 3,
-                            Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                            Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                             Price = 120.0,
                             Quantity = 30,
                             Title = "The Shining"
@@ -134,7 +134,7 @@ namespace Assignment.Migrations
                             Id = 4,
                             AuthorId = 3,
                             CategoryId = 4,
-                            Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                            Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                             Price = 120.0,
                             Quantity = 30,
                             Title = "The Stand"
@@ -144,7 +144,7 @@ namespace Assignment.Migrations
                             Id = 5,
                             AuthorId = 4,
                             CategoryId = 2,
-                            Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                            Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                             Price = 120.0,
                             Quantity = 30,
                             Title = "The Shining"
@@ -154,7 +154,7 @@ namespace Assignment.Migrations
                             Id = 6,
                             AuthorId = 1,
                             CategoryId = 3,
-                            Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                            Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                             Price = 120.0,
                             Quantity = 30,
                             Title = "The Shining"
@@ -164,7 +164,7 @@ namespace Assignment.Migrations
                             Id = 7,
                             AuthorId = 2,
                             CategoryId = 4,
-                            Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                            Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                             Price = 120.0,
                             Quantity = 30,
                             Title = "The Stand"
@@ -174,7 +174,7 @@ namespace Assignment.Migrations
                             Id = 8,
                             AuthorId = 3,
                             CategoryId = 5,
-                            Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                            Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                             Price = 120.0,
                             Quantity = 30,
                             Title = "The Shining"
@@ -184,7 +184,7 @@ namespace Assignment.Migrations
                             Id = 9,
                             AuthorId = 4,
                             CategoryId = 6,
-                            Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                            Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                             Price = 120.0,
                             Quantity = 30,
                             Title = "The Shining"
@@ -194,7 +194,7 @@ namespace Assignment.Migrations
                             Id = 10,
                             AuthorId = 1,
                             CategoryId = 2,
-                            Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                            Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                             Price = 120.0,
                             Quantity = 30,
                             Title = "The Stand"
@@ -326,21 +326,21 @@ namespace Assignment.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "b8392319-aa31-480c-9250-fba778f55911",
+                            ConcurrencyStamp = "d5263e06-18f8-48b4-8e42-3dafab91eabc",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "3d99ad09-1851-40e9-b699-e1eea63aac23",
+                            ConcurrencyStamp = "7a0fb392-920e-447c-ad36-f8d342ff6f18",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "ae86ad26-ee70-48d5-959f-c50100a89c7d",
+                            ConcurrencyStamp = "7a9c23f1-1c7d-42d8-ad01-54582f87c333",
                             Name = "StoreOwner",
                             NormalizedName = "StoreOwner"
                         });
@@ -439,14 +439,14 @@ namespace Assignment.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bb04d96c-8ba0-40e5-9d15-c323f0b7cbe2",
+                            ConcurrencyStamp = "2a9fbbf2-38ca-4632-900e-8f99fb911290",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKUxjSHnGXlDENBxPS8sPzL9jFhT88kP3449hr1arxyAogI4p2p1pVYRf/uK+5o6rw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFDuGBbO2NFA2PMF820tvsgeLUBONUw9DeLaZagKbEQfoUokGBepuG8VFgLPxW0wpg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "010ecb1b-9583-4680-b07b-6a7c5e88d756",
+                            SecurityStamp = "f5709cf9-6030-4e52-bf94-6de2409a641c",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         },
@@ -454,14 +454,14 @@ namespace Assignment.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c4ef0346-e2a6-4239-8bc8-83e8967a5d53",
+                            ConcurrencyStamp = "2c9fe43a-5d0c-41d5-adac-3d80307e0775",
                             Email = "customer@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHTQgDpZBVQvCIWL96a0Uhq20qqJk7UF/3QW8SkMPyoAIRCa/mjEt6mQz25nVBhMGw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELikSjaHHLI0DVx2sCWcKmw7dS7kv8roqsPKkJNfp1a2MvVnVhBwA3LJBAtV1wuowg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8a21d6db-6930-4bdc-b23c-7d6165ba1406",
+                            SecurityStamp = "3556af29-02c1-4a8c-bf81-97549b027218",
                             TwoFactorEnabled = false,
                             UserName = "customer@gmail.com"
                         },
@@ -469,14 +469,14 @@ namespace Assignment.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ff5b6e2b-3369-4780-950a-c8f8d802e659",
+                            ConcurrencyStamp = "db398bfb-7899-485f-a268-d0a99ece4caa",
                             Email = "storeowner@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "storeowner@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFEiUWitAh9Hw7ouYCVn+J8edXV3DnFZstzoL+O8OLff5nx8foQljqYooT0SMTfYsA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGTi2aRmZEl7nr5NCy/T1LijX0WQsBk0IXeeJxjVnO4iLvD+UOlfSYtM76qhPidhdQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6dde91c3-f6e1-446b-8737-bc5ed79b03ab",
+                            SecurityStamp = "883164c0-6c43-49f3-8193-93903fc21e6e",
                             TwoFactorEnabled = false,
                             UserName = "storeowner@gmail.com"
                         });

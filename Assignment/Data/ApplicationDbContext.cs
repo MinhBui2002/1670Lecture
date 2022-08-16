@@ -180,7 +180,7 @@ namespace Assignment.Data
                     Id = 3,
                     Title = "The Shining",
                     Price = 120,
-                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                     Quantity = 30,
                     CategoryId = 3,
                     AuthorId = 2
@@ -190,7 +190,7 @@ namespace Assignment.Data
                     Id = 4,
                     Title = "The Stand",
                     Price = 120,
-                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                     Quantity = 30,
                     CategoryId = 4,
                     AuthorId = 3
@@ -201,7 +201,7 @@ namespace Assignment.Data
                     Id = 5,
                     Title = "The Shining",
                     Price = 120,
-                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                     Quantity = 30,
                     CategoryId = 2,
                     AuthorId = 4
@@ -211,7 +211,7 @@ namespace Assignment.Data
                     Id = 6,
                     Title = "The Shining",
                     Price = 120,
-                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                     Quantity = 30,
                     CategoryId = 3,
                     AuthorId = 1
@@ -221,7 +221,7 @@ namespace Assignment.Data
                     Id = 7,
                     Title = "The Stand",
                     Price = 120,
-                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                     Quantity = 30,
                     CategoryId = 4,
                     AuthorId = 2
@@ -231,7 +231,7 @@ namespace Assignment.Data
                     Id = 8,
                     Title = "The Shining",
                     Price = 120,
-                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                     Quantity = 30,
                     CategoryId = 5,
                     AuthorId = 3
@@ -241,7 +241,7 @@ namespace Assignment.Data
                     Id = 9,
                     Title = "The Shining",
                     Price = 120,
-                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                     Quantity = 30,
                     CategoryId = 6,
                     AuthorId = 4
@@ -251,7 +251,7 @@ namespace Assignment.Data
                     Id = 10,
                     Title = "The Stand",
                     Price = 120,
-                    Image = "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg",
+                    Image = "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg",
                     Quantity = 30,
                     CategoryId = 2,
                     AuthorId = 1

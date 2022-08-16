@@ -251,9 +251,9 @@ namespace Assignment.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "1", "b8392319-aa31-480c-9250-fba778f55911", "Admin", "Admin" },
-                    { "2", "3d99ad09-1851-40e9-b699-e1eea63aac23", "Customer", "Customer" },
-                    { "3", "ae86ad26-ee70-48d5-959f-c50100a89c7d", "StoreOwner", "StoreOwner" }
+                    { "1", "d5263e06-18f8-48b4-8e42-3dafab91eabc", "Admin", "Admin" },
+                    { "2", "7a0fb392-920e-447c-ad36-f8d342ff6f18", "Customer", "Customer" },
+                    { "3", "7a9c23f1-1c7d-42d8-ad01-54582f87c333", "StoreOwner", "StoreOwner" }
                 });
 
             migrationBuilder.InsertData(
@@ -261,9 +261,9 @@ namespace Assignment.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "bb04d96c-8ba0-40e5-9d15-c323f0b7cbe2", "admin@gmail.com", false, false, null, null, "admin@gmail.com", "AQAAAAEAACcQAAAAEKUxjSHnGXlDENBxPS8sPzL9jFhT88kP3449hr1arxyAogI4p2p1pVYRf/uK+5o6rw==", null, false, "010ecb1b-9583-4680-b07b-6a7c5e88d756", false, "admin@gmail.com" },
-                    { "2", 0, "c4ef0346-e2a6-4239-8bc8-83e8967a5d53", "customer@gmail.com", false, false, null, null, "customer@gmail.com", "AQAAAAEAACcQAAAAEHTQgDpZBVQvCIWL96a0Uhq20qqJk7UF/3QW8SkMPyoAIRCa/mjEt6mQz25nVBhMGw==", null, false, "8a21d6db-6930-4bdc-b23c-7d6165ba1406", false, "customer@gmail.com" },
-                    { "3", 0, "ff5b6e2b-3369-4780-950a-c8f8d802e659", "storeowner@gmail.com", false, false, null, null, "storeowner@gmail.com", "AQAAAAEAACcQAAAAEFEiUWitAh9Hw7ouYCVn+J8edXV3DnFZstzoL+O8OLff5nx8foQljqYooT0SMTfYsA==", null, false, "6dde91c3-f6e1-446b-8737-bc5ed79b03ab", false, "storeowner@gmail.com" }
+                    { "1", 0, "2a9fbbf2-38ca-4632-900e-8f99fb911290", "admin@gmail.com", false, false, null, null, "admin@gmail.com", "AQAAAAEAACcQAAAAEFDuGBbO2NFA2PMF820tvsgeLUBONUw9DeLaZagKbEQfoUokGBepuG8VFgLPxW0wpg==", null, false, "f5709cf9-6030-4e52-bf94-6de2409a641c", false, "admin@gmail.com" },
+                    { "2", 0, "2c9fe43a-5d0c-41d5-adac-3d80307e0775", "customer@gmail.com", false, false, null, null, "customer@gmail.com", "AQAAAAEAACcQAAAAELikSjaHHLI0DVx2sCWcKmw7dS7kv8roqsPKkJNfp1a2MvVnVhBwA3LJBAtV1wuowg==", null, false, "3556af29-02c1-4a8c-bf81-97549b027218", false, "customer@gmail.com" },
+                    { "3", 0, "db398bfb-7899-485f-a268-d0a99ece4caa", "storeowner@gmail.com", false, false, null, null, "storeowner@gmail.com", "AQAAAAEAACcQAAAAEGTi2aRmZEl7nr5NCy/T1LijX0WQsBk0IXeeJxjVnO4iLvD+UOlfSYtM76qhPidhdQ==", null, false, "883164c0-6c43-49f3-8193-93903fc21e6e", false, "storeowner@gmail.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -307,14 +307,14 @@ namespace Assignment.Migrations
                 {
                     { 1, 1, 1, "https://bookbuy.vn/Res/Images/Product/harry-potter-tap-8-harry-porter-and-the-cursed-child-parts-one-two-special-rehearsal-edition-script-_52322_1.jpg", 120.0, 30, "Harry Potter" },
                     { 2, 2, 1, "https://images-na.ssl-images-amazon.com/images/I/71Jk3baRdnL.jpg", 120.0, 30, "Godfather" },
-                    { 5, 4, 2, "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg", 120.0, 30, "The Shining" },
-                    { 10, 1, 2, "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg", 120.0, 30, "The Stand" },
-                    { 3, 2, 3, "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg", 120.0, 30, "The Shining" },
-                    { 6, 1, 3, "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg", 120.0, 30, "The Shining" },
-                    { 4, 3, 4, "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg", 120.0, 30, "The Stand" },
-                    { 7, 2, 4, "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg", 120.0, 30, "The Stand" },
-                    { 8, 3, 5, "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg", 120.0, 30, "The Shining" },
-                    { 9, 4, 6, "https://images-na.ssl-images-amazon.com/images/I/51-%2Bq%2BQ%2BcL._SX329_BO1,204,203,200_.jpg", 120.0, 30, "The Shining" }
+                    { 5, 4, 2, "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg", 120.0, 30, "The Shining" },
+                    { 10, 1, 2, "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg", 120.0, 30, "The Stand" },
+                    { 3, 2, 3, "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg", 120.0, 30, "The Shining" },
+                    { 6, 1, 3, "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg", 120.0, 30, "The Shining" },
+                    { 4, 3, 4, "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg", 120.0, 30, "The Stand" },
+                    { 7, 2, 4, "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg", 120.0, 30, "The Stand" },
+                    { 8, 3, 5, "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg", 120.0, 30, "The Shining" },
+                    { 9, 4, 6, "http://prodimage.images-bn.com/pimages/9780345806789_p0_v2_s1200x630.jpg", 120.0, 30, "The Shining" }
                 });
 
             migrationBuilder.CreateIndex(
