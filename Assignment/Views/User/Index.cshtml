@@ -1,4 +1,6 @@
-﻿
+﻿@{
+    var count = 1;
+}
 
 <div class="container text-center mt-3" style="background-color: antiquewhite">
     @if (@TempData["Message"] != null)
@@ -17,7 +19,7 @@
         @foreach (var user in Model)
         {
             <tr>
-                <td>@user.Id</td>
+                <td>@count</td>
                 <td>@user.Email</td>
                 @foreach (var role in ViewBag.Roles)
                 {
@@ -27,17 +29,19 @@
                         {
                             <td>Admin</td>
                         }
-                        else if (role.RoleId.Equals("2"))
+                        else if (role.RoleId.Equals("3"))
                         {
                             <td>Store Owner</td>
                         }
-                        else if (role.RoleId.Equals("3"))
+                        else if (role.RoleId.Equals("2"))
                         {
                             <td>Customer</td>
                         }
                     }
                 }
             </tr>
+
+            count++;
         }
 
     </table>
