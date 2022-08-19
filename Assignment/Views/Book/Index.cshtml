@@ -1,11 +1,11 @@
 ﻿@model ICollection<Book>
 
-<div class="container text-center mt-3">
+<div class="container text-center mt-3" style="background-color:antiquewhite">
     @if (@TempData["Message"] != null)
     {
-        <p class="alert alert-danger">@TempData["Message"]</p>
+        <p class="alert alert-danger" style="background-color:antiquewhite">@TempData["Message"]</p>
     }
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="border: 2px">
         <tr>
             <th colspan="3" class="h3 bg-light text-success">Book List</th>
             <th class="col-md-4">
@@ -33,7 +33,7 @@
                     @book.Title
                 </td>
                 <td>
-                    <a class="btn btn-warning" asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id">
+                    <a class="btn btn-info" asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id">
                         Edit
                     </a>
                     <a class="btn btn-danger" asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id"

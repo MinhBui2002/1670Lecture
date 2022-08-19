@@ -1,0 +1,27 @@
+﻿@model ICollection<Request>
+
+
+<div class="container text-center mt-3" style="background-color:antiquewhite">
+
+    <table class="table table-bordered">
+        <tr>
+            <th colspan="3" class="h3 bg-light text-success">Request List</th>
+
+        </tr>
+        <tr>
+            <th>Request Id</th>
+            <th>Category name</th>
+            <th>Status</th>
+            
+        </tr>
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.Id</td>
+                <td>@request.CategoryName</td>
+                <td>@request.Status</td>
+                
+            </tr>
+        }
+    </table>
+</div>

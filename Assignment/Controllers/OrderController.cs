@@ -27,6 +27,7 @@ namespace Assignment.Controllers
             
             var book = context.Books.Find(id);
             order.Book = book;
+            order.Status = "Pending";
             order.BookId = id;
             order.OrderQuantity = quantity;
             order.OrderPrice = book.Price * quantity;
@@ -45,11 +46,32 @@ namespace Assignment.Controllers
             return RedirectToAction("Store", "Book");
         }
 
-        [Authorize(Roles = "Customer,Admin")]
+        
         public IActionResult Delete(int id)
         {
             var order = context.Order.Find(id);
+            var book = context.Books.Find(order.BookId);
+            book.Quantity += order.OrderQuantity;
             context.Order.Remove(order);
+            context.SaveChanges();
+            
+            return RedirectToAction("Index", "Order");
+        }
+
+        public IActionResult Accept(int id)
+        {
+            var order = context.Order.Find(id);
+            order.Status = "Accept";
+            context.SaveChanges();
+            return RedirectToAction("Index", "Order");
+        }
+
+        public IActionResult Reject(int id)
+        {
+            var order = context.Order.Find(id);
+            var book = context.Books.Find(order.BookId);
+            book.Quantity += order.OrderQuantity;
+            order.Status = "Reject";
             context.SaveChanges();
             return RedirectToAction("Index", "Order");
         }

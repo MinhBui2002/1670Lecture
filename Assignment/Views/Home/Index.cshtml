@@ -1,8 +1,55 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Book Store";
+}
+<style>
+    body {margin:0;}
+
+  .navbar{
+    display: flex;
+    background-color:rgb(60, 124, 197);
+    position: fixed;
+    top:0;
+    width: 100%;
+    font-size: 20px;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+.nav-right{
+    text-align: right;
+    float:right;
+}
+
+.section-1{
+    padding:200px;
+    background-image: url("https://ak0.picdn.net/shutterstock/videos/20344780/thumb/1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height:627px;
+    background-size: 100% 100%;
+}
+
+.section-1-text{
+    display: block;
+    border: black;
+}
+
+h1{
+    font-size: 100px;
+    color: white;
+}
+.section-1 p{
+    font-size: 20px;
+    color: white;
+}
+
+</style>
+<div>
+    <div class="section-1">
+        <div class="Section-1-text">
+            <center><h1>Welcome to Book Zone</h1>
+            <p>You can find out yours book here.</p>
+           
+        </center>
+        </div>
+    </div>
 </div>

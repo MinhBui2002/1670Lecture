@@ -16,7 +16,7 @@ namespace Assignment.Controllers
             context = applicationDbContext;
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, StoreOwner")]
         public IActionResult Index()
         {
             return View(context.Requests.ToList());
@@ -27,7 +27,7 @@ namespace Assignment.Controllers
         [HttpGet]
         public IActionResult MakeRequest()
         {
-            
+
             return View();
         }
 
@@ -37,13 +37,13 @@ namespace Assignment.Controllers
         {
             if (ModelState.IsValid)
             {
-                request.Status = false;
+                request.Status = "Pending";
                 context.Add(request);
                 context.SaveChanges();
-                
-                return RedirectToAction(nameof(MakeRequest));
+                TempData["Message"] = "Make request success";
+                return RedirectToAction("Index");
             }
-            return View(request);
+            return View();
         }
 
         //delete the request
@@ -51,7 +51,17 @@ namespace Assignment.Controllers
         public IActionResult Delete(int id)
         {
             var request = context.Requests.Find(id);
-            context.Requests.Remove(request);
+            request.Status = "Rejected";
+            context.Update(request);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult Accept(int id)
+        {
+            var request = context.Requests.Find(id);
+            request.Status = "Accepted";
+            context.Update(request);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -61,6 +71,13 @@ namespace Assignment.Controllers
         public IActionResult DisplayRequests()
         {
             return View(context.Requests.ToList());
+        }
+        [HttpPost]
+        [Authorize(Roles = "Admin, StoreOwner")]
+        public IActionResult Search(string status)
+        {
+            var requests = context.Requests.Where(m => m.Status.Contains(status)).ToList();
+            return View("Index", requests);
         }
     }
 }

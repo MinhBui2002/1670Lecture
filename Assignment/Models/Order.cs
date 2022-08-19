@@ -22,5 +22,7 @@ namespace Assignment.Models
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime OrderDate { get; set; }
+
+        public string Status { get; set; }
     }
 }

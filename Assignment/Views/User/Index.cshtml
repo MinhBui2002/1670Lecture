@@ -1,1 +1,44 @@
 ﻿
+
+<div class="container text-center mt-3" style="background-color: antiquewhite">
+    @if (@TempData["Message"] != null)
+    {
+        <p class="alert alert-danger">@TempData["Message"]</p>
+    }
+    <table class="table table-bordered">
+        <tr>
+            <th colspan="6" class="h3 bg-light text-success">Users List</th>
+        </tr>
+        <tr>
+            <th>User Id</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Email</td>
+                @foreach (var role in ViewBag.Roles)
+                {
+                    if (user.Id == role.UserId)
+                    {
+                        if (role.RoleId.Equals("1"))
+                        {
+                            <td>Admin</td>
+                        }
+                        else if (role.RoleId.Equals("2"))
+                        {
+                            <td>Store Owner</td>
+                        }
+                        else if (role.RoleId.Equals("3"))
+                        {
+                            <td>Customer</td>
+                        }
+                    }
+                }
+            </tr>
+        }
+
+    </table>
+</div>

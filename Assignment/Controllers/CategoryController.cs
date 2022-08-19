@@ -55,6 +55,7 @@ namespace Assignment.Controllers
             if (ModelState.IsValid)
             {
                 category.Name = name;
+                
                 context.Categories.Add(category);
                 context.SaveChanges();
                 TempData["Message"] = "Create category successfully !";
