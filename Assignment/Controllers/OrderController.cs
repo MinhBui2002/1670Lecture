@@ -11,7 +11,7 @@ namespace Assignment.Controllers
 {
     public class OrderController : Controller
     {
-        //khai báo ApplicationDbContext để truy xuất và thay đổi dữ liệu của bảng
+        
         private ApplicationDbContext context;
         public OrderController(ApplicationDbContext applicationDbContext)
         {
@@ -33,16 +33,16 @@ namespace Assignment.Controllers
             order.OrderPrice = book.Price * quantity;
             order.OrderDate = DateTime.Now;
             order.UserEmail = User.Identity.Name;
-            //add Order vào DB
+            
             context.Order.Add(order);
-            //trừ quantity của book
+           
             book.Quantity -= quantity;
             context.Books.Update(book);
-            //lưu cập nhật vào DB
+            
             context.SaveChanges();
-            //gửi về thông báo order thành công
+            
             TempData["Success"] = "Order book successfully !";
-            //redirect về trang book store
+            
             return RedirectToAction("Store", "Book");
         }
 
